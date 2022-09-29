@@ -1,24 +1,29 @@
 export default function Stories(){
+
+    const story = 
+        [
+            {image: "./files/9gag.png", name: "9gag" },
+            {image: "./files/meowed.png", name: "meowed"},
+            {image: "./files/barked.png", name: "barked"},
+            {image: "./files/strangeplanet.png", name: "nathanwpylestrangeplanet"},
+            {image: "./files/wawa.png", name: "wawawicomics"},
+            {image: "./files/respondeai.png", name: "respondeai"},
+            {image: "./files/filomoderna.png", name: "filomoderna"},
+            {image: "./files/memeriagourmet.png", name: "memeriagourmet"}
+        ]
+
     return (
         <div class="stories-box">
-            <StoriesProps image="./files/9gag.png" name="9gag" />
-            <StoriesProps image="./files/meowed.png" name="meowed" />
-            <StoriesProps image="./files/barked.png" name="barked" />
-            <StoriesProps image="./files/strangeplanet.png" name="nathanwpylestrangeplanet" />
-            <StoriesProps image="./files/wawa.png" name="wawawicomics" />
-            <StoriesProps image="./files/respondeai.png" name="respondeai" />
-            <StoriesProps image="./files/filomoderna.png" name="filomoderna" />
-            <StoriesProps image="./files/memeriagourmet.png" name="memeriagourmet" />
-
+            {story.map((story) => <StoriesProps story = {story}/> )}
             <div class="arrow"> <ion-icon name="chevron-forward-circle"></ion-icon> </div>
         </div>
     )
 }
-function StoriesProps(props){
+function StoriesProps({story}){
     return (
         <div class="story">
-            <div class="icon-image"> <img src={props.image} alt="" /> </div>
-            <div class="icon-names"> {props.name} </div>
+            <div class="icon-image"> <img src={story.image} alt="" /> </div>
+            <div class="icon-names"> {story.name} </div>
         </div>
     )
 }

@@ -1,21 +1,26 @@
 export default function Sugestions() {
+
+    const sugestions = [
+        {profileTitle: "bad.vibes.memes", profileIcon: "./files/badvibesmemes.png"},
+        {profileTitle: "chibirdart", profileIcon: "./files/chibirdart.png"},
+        {profileTitle: "razoesparaacreditar", profileIcon: "./files/razoesparaacreditar.png"},
+        {profileTitle: "adorableanimals", profileIcon: "./files/adorableanimals.png"},
+        {profileTitle: "smallcutecats", profileIcon: "./files/smallcutecats.png"}
+    ]
+
     return (
         <div class="sugestions-box">
-            <SugestionsProps profileTitle="bad.vibes.memes" profileIcon="./files/badvibesmemes.png"/>
-            <SugestionsProps profileTitle="chibirdart" profileIcon="./files/chibirdart.png"/>
-            <SugestionsProps profileTitle="razoesparaacreditar" profileIcon="./files/razoesparaacreditar.png"/>
-            <SugestionsProps profileTitle="adorableanimals" profileIcon="./files/adorableanimals.png"/>
-            <SugestionsProps profileTitle="smallcutecats" profileIcon="./files/smallcutecats.png"/>
+            {sugestions.map((sugestion) => <SugestionsProps sugestion = {sugestion} />)}
         </div>
     )
 }
-function SugestionsProps(props){
+function SugestionsProps({sugestion}){
     return (
         <div class="sugestion">
             <div class="row">
-                <img class="sidebar-icons" src={props.profileIcon} alt="" />
+                <img class="sidebar-icons" src={sugestion.profileIcon} alt="" />
                 <div>
-                    <h2> {props.profileTitle} </h2>
+                    <h2> {sugestion.profileTitle} </h2>
                     <h1> Segue você </h1>
                 </div>
             </div>

@@ -1,17 +1,26 @@
 import react from "react"
 
 export default function User() {
+    return (
+        <UserProps UserNickName="Catanacomics"/>
+    )
+}
 
-
+function UserProps(props){
+    const [ProfilePicture, setProfilePicture] = react.useState("./files/catanacomics.png")
     const [UserName, setUserName] = react.useState("Catana")
 
     return (
         <div class="siderbar-header">
             <div class="sidebar-header-profile">
-                <img class="catana-icon" alt="" src="./files/catanacomics.png" />
+                <img onClick={() =>{
+                    if (prompt('Insira o link da imagem') !== ""){
+                        setProfilePicture(prompt('Insira o link da imagem'))
+                    }
+                }} class="catana-icon" alt="" src={ProfilePicture} />
                 <div class="sidebar-header-profile-textbox">
-                    <h4> catanacomics </h4>
-                    <h1> {UserName} <span onClick={() => setUserName(prompt('Qual o seu nick?'))}><ion-icon name="pencil"/></span></h1>
+                    <h4> {props.UserNickName} </h4>
+                    <h1> {UserName} <span onClick={() => setUserName(prompt('Insira o novo nome'))}><ion-icon name="pencil"/></span></h1>
                 </div>
             </div>
             <div class="sidebar-header-subtitle">
@@ -20,8 +29,4 @@ export default function User() {
             </div>
         </div>
     )
-}
-
-function setUserName(){
-
 }

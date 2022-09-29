@@ -237,6 +237,9 @@ main {
   margin-top: 20px;
   flex-shrink: 0;
 }
+.sidebar-header-profile img {
+  border-radius: 50%;
+}
 .catana-icon {
   width: 56px;
   height: 56px;
